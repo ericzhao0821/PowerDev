@@ -1,0 +1,92 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "zjCustomFuncNew",
+    "version": "1.0",
+    "description": "Import from \"zjCustomFuncNew\" Function App"
+  },
+  "host": "zjapim01.azure-api.net",
+  "basePath": "/zjCustomFuncNew",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/ExchangeRateFunc": {
+      "get": {
+        "operationId": "GetSupportedRates",
+        "summary": "ExchangeRateFunc",
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "supportedRates": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "title": "supportedRates"
+                  },
+                  "description": "supportedRates"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GetExchangeRate": {
+      "get": {
+        "operationId": "GetSpecExchangeRate",
+        "summary": "GetExchangeRate",
+        "parameters": [
+          {
+            "name": "current",
+            "type": "string",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "target",
+            "type": "string",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "targetRate": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "targetRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "API Key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Ocp-Apim-Subscription-Key"
+    }
+  },
+  "security": [
+    {
+      "API Key": []
+    }
+  ],
+  "tags": []
+}
